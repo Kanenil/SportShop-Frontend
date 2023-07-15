@@ -1,0 +1,8 @@
+<div class="relative rounded-sm overflow-hidden group">
+  <img [src]="image" [alt]="category.name" class="object-contain w-full max-h-56">
+  <a [routerLink]="['products']"
+     [queryParams]="{ category: category.idCategory }"
+     class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition max-h-56">
+    {{ category.name | titlecase }}
+  </a>
+</div>
