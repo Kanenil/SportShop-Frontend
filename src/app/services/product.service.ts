@@ -69,8 +69,18 @@ export class ProductService {
     return PRODUCTS;
   }
 
+  getAllImages() : string[] {
+    return IMAGES;
+  }
+
   getImageById(id: number) {
     return IMAGES[id];
+  }
+
+  getProductById(id: number | string) {
+    const product = PRODUCTS.find(prod => prod.idProduct == id);
+
+    return product;
   }
 
 }

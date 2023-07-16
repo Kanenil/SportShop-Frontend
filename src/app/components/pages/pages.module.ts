@@ -6,8 +6,9 @@ import { ProductsComponent } from './products/products.component';
 import {ProductModule} from "../product/product.module";
 import {CategoryModule} from "../category/category.module";
 import { MobileFilterComponent } from './products/mobile-filter/mobile-filter.component';
-import {AppModule} from "../../app.module";
 import {ClickedOutsideDirective} from "../../directives/clicked-outside.directive";
+import { SingleProductComponent } from './single-product/single-product.component';
+import {BaseModule} from "../common/base.module";
 
 
 
@@ -16,13 +17,15 @@ import {ClickedOutsideDirective} from "../../directives/clicked-outside.directiv
     HomeComponent,
     ProductsComponent,
     MobileFilterComponent,
-    ClickedOutsideDirective
+    ClickedOutsideDirective,
+    SingleProductComponent
   ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    ProductModule,
-    CategoryModule
-  ]
+    imports: [
+        CommonModule,
+        RouterLink,
+        ProductModule,
+        CategoryModule,
+        BaseModule
+    ]
 })
 export class PagesModule { }
