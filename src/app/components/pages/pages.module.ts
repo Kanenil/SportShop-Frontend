@@ -9,6 +9,7 @@ import { MobileFilterComponent } from './products/mobile-filter/mobile-filter.co
 import {ClickedOutsideDirective} from "../../directives/clicked-outside.directive";
 import { SingleProductComponent } from './single-product/single-product.component';
 import {BaseModule} from "../common/base.module";
+import { FilterComponent } from './products/filter/filter.component';
 
 
 
@@ -18,7 +19,8 @@ import {BaseModule} from "../common/base.module";
     ProductsComponent,
     MobileFilterComponent,
     ClickedOutsideDirective,
-    SingleProductComponent
+    SingleProductComponent,
+    FilterComponent
   ],
     imports: [
         CommonModule,
