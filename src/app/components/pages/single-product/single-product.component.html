@@ -1,18 +1,7 @@
 <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
 
 <div class="container grid grid-cols-2 gap-6">
-  <div>
-    <div class="flex justify-center items-center">
-      <img [src]="images[0]" [alt]="'Image 1 for ' + product.name" class="object-contain w-1/2">
-    </div>
-    <div class="grid grid-cols-8 gap-2 mt-4">
-      <ng-container *ngFor="let image of images; index as i">
-        <img *ngIf="i === 0" [src]="image" [alt]="'Image'+ i +' for ' + product.name"
-             class="w-full cursor-pointer border border-primary">
-        <img *ngIf="i !== 0" [src]="image" [alt]="'Image'+ i +' for ' + product.name" class="w-full cursor-pointer border">
-      </ng-container>
-    </div>
-  </div>
+  <app-carousel [images]="images"></app-carousel>
 
   <div>
     <h2 class="text-3xl font-medium uppercase mb-2">{{ product.name }}</h2>

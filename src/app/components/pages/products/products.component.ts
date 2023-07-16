@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {CategoryService} from "../../../services/category.service";
 import {ProductService} from "../../../services/product.service";
 import {IBreadcrumb} from "../../common/breadcrumb/breadcrumb.model";
 
@@ -14,7 +13,6 @@ export class ProductsComponent {
   ]
 
   constructor(
-    public categoryService: CategoryService,
     public productService: ProductService
   ) {}
 

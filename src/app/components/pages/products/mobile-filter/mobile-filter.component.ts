@@ -7,6 +7,7 @@ import {CategoryService} from "../../../../services/category.service";
 })
 export class MobileFilterComponent {
 
+  public sizes: string[] = ["XXS", "XS", "S", "M", "L", "XL", "2XL", "3XL"]
   public isOpen = false;
 
   constructor(
@@ -14,18 +15,9 @@ export class MobileFilterComponent {
   ) {}
 
   handleClick(el: Element) {
-
-    console.log(el.closest("#filter-dialog"))
-
     if(el.closest("#filter-dialog") || this.isOpen) {
       this.toggleOpen();
     }
-
-    // if(this.isOpen) {
-    //   this.toggleOpen();
-    // } else if(el.closest("#filter-dialog")) {
-    //   //this.toggleOpen();
-    // }
   }
 
   toggleOpen() {
@@ -37,6 +29,4 @@ export class MobileFilterComponent {
 
     this.isOpen = !this.isOpen;
   }
-
-  protected readonly event = event;
 }
