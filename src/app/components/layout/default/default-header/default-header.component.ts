@@ -1,4 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {CartService} from "../../../../services/cart.service";
 
 @Component({
   selector: 'app-default-header',
@@ -7,6 +8,10 @@ import {Component, HostListener, OnInit} from '@angular/core';
 export class DefaultHeaderComponent implements OnInit {
 
   private header: HTMLElement | null = null;
+
+  constructor(
+    public cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.header = document.querySelector('header');

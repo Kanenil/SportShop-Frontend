@@ -31,16 +31,8 @@
 
       <app-product-card *ngFor="let product of productService.getAll(); index as i;"
                         [product]="product"
-                        [image]="productService.getImageById(i)"
-                        [isInCart]="false">
+                        [image]="productService.getImageById(i)">
       </app-product-card>
-
-      <app-product-card *ngFor="let product of productService.getAll().slice(0, 2); index as i;"
-                        [product]="product"
-                        [image]="productService.getImageById(i)"
-                        [isInCart]="true">
-      </app-product-card>
-
 
     </div>
   </div>

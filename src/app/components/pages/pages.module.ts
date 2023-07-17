@@ -10,6 +10,7 @@ import {ClickedOutsideDirective} from "../../directives/clicked-outside.directiv
 import { SingleProductComponent } from './single-product/single-product.component';
 import {BaseModule} from "../common/base.module";
 import { FilterComponent } from './products/filter/filter.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -20,7 +21,8 @@ import { FilterComponent } from './products/filter/filter.component';
     MobileFilterComponent,
     ClickedOutsideDirective,
     SingleProductComponent,
-    FilterComponent
+    FilterComponent,
+    CartComponent
   ],
     imports: [
         CommonModule,

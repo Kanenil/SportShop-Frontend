@@ -3,6 +3,7 @@ import {IBreadcrumb} from "../../common/breadcrumb/breadcrumb.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 import {IProduct} from "../../../models/product/product.model";
+import {CartService} from "../../../services/cart.service";
 
 @Component({
   selector: 'app-single-product',
@@ -18,7 +19,8 @@ export class SingleProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public productService: ProductService
+    public productService: ProductService,
+    public cartService: CartService
   ) {}
 
   ngOnInit(): void {
