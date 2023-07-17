@@ -19,12 +19,12 @@
       <p class="ml-auto text-lg text-gray-800 font-medium">{{ product.price | currency }}</p>
     </a>
   </div>
-  <a *ngIf="!isInCart"
-     href="#"
+  <button *ngIf="!cartService.isProductInCart(product)"
+     (click)="cartService.addProductToCart(product)"
      class="block uppercase w-full py-3 text-center font-medium text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
     Add to cart
-  </a>
-  <a *ngIf="isInCart"
+  </button>
+  <a *ngIf="cartService.isProductInCart(product)"
      routerLink="/cart"
      class="block uppercase w-full py-3 text-center font-medium  text-white bg-secondary border border-secondary rounded-b hover:bg-transparent hover:text-secondary transition">
     Already in cart

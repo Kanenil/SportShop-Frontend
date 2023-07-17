@@ -5,6 +5,7 @@ import {AdminLayoutComponent} from "./components/layout/admin/admin-layout/admin
 import {HomeComponent} from "./components/pages/home/home.component";
 import {ProductsComponent} from "./components/pages/products/products.component";
 import {SingleProductComponent} from "./components/pages/single-product/single-product.component";
+import {CartComponent} from "./components/pages/cart/cart.component";
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
           { path: ':id', component: SingleProductComponent }
         ]
       },
+      { path: 'cart', component: CartComponent },
       //{ path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: 'not-found' }
     ]

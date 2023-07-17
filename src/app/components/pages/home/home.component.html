@@ -48,8 +48,7 @@
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
     <app-product-card *ngFor="let product of productService.getAll(); index as i;"
                       [product]="product"
-                      [image]="productService.getImageById(i)"
-                      [isInCart]="false">
+                      [image]="productService.getImageById(i)">
     </app-product-card>
   </div>
 </div>
@@ -69,8 +68,7 @@
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
     <app-product-card *ngFor="let product of productService.getAll(); index as i;"
                       [product]="product"
-                      [image]="productService.getImageById(i)"
-                      [isInCart]="true">
+                      [image]="productService.getImageById(i)">
     </app-product-card>
   </div>
 </div>
