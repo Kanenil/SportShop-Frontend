@@ -7,6 +7,7 @@ import {LayoutModule} from "./components/layout/layout.module";
 import {PagesModule} from "./components/pages/pages.module";
 import { ClickedOutsideDirective } from './directives/clicked-outside.directive';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
         BrowserModule,
         AppRoutingModule,
         LayoutModule,
-        PagesModule
+        PagesModule,
+      HttpClientModule
     ],
     providers: [],
   exports: [

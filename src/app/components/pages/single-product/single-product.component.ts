@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 import {IProduct} from "../../../models/product/product.model";
 import {CartService} from "../../../services/cart.service";
+import {ImageService} from "../../../services/image.service";
 
 @Component({
   selector: 'app-single-product',
@@ -14,12 +15,14 @@ export class SingleProductComponent implements OnInit {
   public sizes: string[] = ["XXS", "XS", "S", "M", "L", "XL", "2XL", "3XL"]
   public breadcrumbs!: IBreadcrumb[];
   public product!: IProduct;
+  public products!: IProduct[];
   public images!: string[];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public productService: ProductService,
+    public imageService: ImageService,
     public cartService: CartService
   ) {}
 
@@ -35,6 +38,10 @@ export class SingleProductComponent implements OnInit {
           {title: "Products", link: ["/products"]},
           {title: product.name, link: ["/products", id]},
         ]
+
+        this.productService.getAll().subscribe(resp => {
+          this.products = resp
+        });
       } else {
         this.router.navigate(["/products"], {replaceUrl: true});
       }

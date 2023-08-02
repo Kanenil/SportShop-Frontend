@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {IProduct} from "../models/product/product.model";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
+import {Observable} from "rxjs";
 
 const PRODUCTS: IProduct[] = [
   {
@@ -63,10 +66,10 @@ const IMAGES: string[] = [
   providedIn: 'root'
 })
 export class ProductService {
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAll() : IProduct[] {
-    return PRODUCTS;
+  getAll() : Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${environment.apiUrl}/product/all`);
   }
 
   getAllImages() : string[] {
