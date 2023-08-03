@@ -11,6 +11,8 @@ import { SingleProductComponent } from './single-product/single-product.componen
 import {BaseModule} from "../common/base.module";
 import { FilterComponent } from './products/filter/filter.component';
 import { CartComponent } from './cart/cart.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 
@@ -22,7 +24,9 @@ import { CartComponent } from './cart/cart.component';
     ClickedOutsideDirective,
     SingleProductComponent,
     FilterComponent,
-    CartComponent
+    CartComponent,
+    SigninComponent,
+    RegisterComponent
   ],
     imports: [
         CommonModule,

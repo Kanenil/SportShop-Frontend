@@ -6,6 +6,8 @@ import {HomeComponent} from "./components/pages/home/home.component";
 import {ProductsComponent} from "./components/pages/products/products.component";
 import {SingleProductComponent} from "./components/pages/single-product/single-product.component";
 import {CartComponent} from "./components/pages/cart/cart.component";
+import {SigninComponent} from "./components/pages/auth/signin/signin.component";
+import {RegisterComponent} from "./components/pages/auth/register/register.component";
 
 const routes: Routes = [
 
@@ -21,6 +23,8 @@ const routes: Routes = [
         ]
       },
       { path: 'cart', component: CartComponent },
+      { path: 'signin', component: SigninComponent },
+      { path: 'signup', component: RegisterComponent },
       //{ path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: 'not-found' }
     ]
