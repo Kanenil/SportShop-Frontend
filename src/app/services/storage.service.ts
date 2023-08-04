@@ -21,6 +21,13 @@ export class StorageService {
     return null;
   }
 
+  public get(key: string): string | null {
+    if(this.isContain(key)) {
+      return localStorage.getItem(key);
+    }
+    return null;
+  }
+
   public isContain(key: string) {
     return localStorage.getItem(key) != null;
   }

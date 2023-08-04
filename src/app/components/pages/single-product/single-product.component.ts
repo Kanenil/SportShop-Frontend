@@ -37,9 +37,15 @@ export class SingleProductComponent implements OnInit {
           {title: resp.title, link: ["/products", id]},
         ]
 
-        this.productService.getAll().subscribe(resp => {
-          this.products = resp
-        });
+        this.productService.getAll().subscribe(resp=>{
+          this.products = []
+          for (const iProduct of resp) {
+            this.imageService.getAllImages(iProduct.idProduct).subscribe(images=>{
+              iProduct.images = images
+              this.products.push(iProduct)
+            })
+          }
+        })
       }, error => {
         this.router.navigate(["/products"], {replaceUrl: true});
       })

@@ -92,7 +92,7 @@
   <div class="grid grid-cols-4 gap-6">
     <app-product-card *ngFor="let product of products; index as i"
                       [product]="product"
-                      [image]="imageService.getAllImages(product.idProduct) | async">
+                      [image]="product.images">
     </app-product-card>
   </div>
 </div>

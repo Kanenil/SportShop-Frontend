@@ -1,4 +1,5 @@
 import {ICategory} from "../category/category.model";
+import {IImage} from "../image/image.model";
 
 export interface IProduct {
   idProduct: number,
@@ -8,5 +9,6 @@ export interface IProduct {
   size: string,
   brand: string,
   category: ICategory,
+  images?: IImage[]
 }
 

@@ -36,12 +36,8 @@
                 </svg>
               </span>
             </div>
-            <div class="z-10 submenu hidden relative lg:absolute w-[250px] top-full lg:top-[110%] left-0 rounded-sm lg:shadow-lg p-4 lg:block lg:opacity-0 lg:invisible group-hover:opacity-100 lg:group-hover:visible lg:group-hover:top-full bg-white transition-[top] duration-300">
-              <a routerLink="/settings"
-                 class="block text-sm text-body-color rounded hover:text-primary py-[10px] px-4">
-                Settings
-              </a>
-              <a routerLink="/orders"
+            <div class="z-10 submenu hidden relative lg:absolute w-[120px] top-full lg:top-[110%] left-0 rounded-sm lg:shadow-lg p-4 lg:block lg:opacity-0 lg:invisible group-hover:opacity-100 lg:group-hover:visible lg:group-hover:top-full bg-white transition-[top] duration-300">
+              <a [routerLink]="['/order', 'history']"
                  class="block text-sm text-body-color rounded hover:text-primary py-[10px] px-4">
                 Orders
               </a>

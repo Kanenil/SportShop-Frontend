@@ -15,8 +15,8 @@
             <div class="mb-8">
               <label class="block text-sm font-medium mb-3"
                      [ngClass]="{
-                      'label-invalid': submitted && f['firstName'].errors,
-                      'label-valid': submitted &&  !f['firstName'].errors,
+                      'label-invalid': submitted && f['name'].errors,
+                      'label-valid': submitted &&  !f['name'].errors,
                       'text-[#1d2144] dark:text-white': !submitted
                      }"
                      for="name">
@@ -27,12 +27,12 @@
                      placeholder="Enter your Name"
                      class="w-full dark:bg-[#242B51] border border-transparent rounded-md shadow-one py-3 px-6 text-base outline-none focus-visible:shadow-none"
                      [ngClass]="{
-                                'input-invalid': submitted && f['firstName'].errors,
-                                'input-valid': submitted &&  !f['firstName'].errors,
+                                'input-invalid': submitted && f['name'].errors,
+                                'input-valid': submitted &&  !f['name'].errors,
                                 'text-[#959cb1] placeholder-[#959cb1] focus:border-[#4a6cf7]': !submitted
                                 }">
-              <p *ngIf="submitted && f['firstName'].errors" class="mt-2 text-sm text-red-600 dark:text-red-500">
-                <span *ngIf="f['firstName'].errors?.['required']">Name is required</span>
+              <p *ngIf="submitted && f['name'].errors" class="mt-2 text-sm text-red-600 dark:text-red-500">
+                <span *ngIf="f['name'].errors?.['required']">Name is required</span>
               </p>
             </div>
             <div class="mb-8">
@@ -183,7 +183,7 @@
           </form>
           <p class="font-medium text-base text-[#959cb1] text-center">
             Already using Smart Test?
-            <a class="text-[#4a6df7] hover:underline" [routerLink]="['/auth','login']"> Sign in </a>
+            <a class="text-[#4a6df7] hover:underline" [routerLink]="['/signin']"> Sign in </a>
           </p>
         </div>
       </div>

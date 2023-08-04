@@ -22,8 +22,14 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getAll().subscribe(resp => {
-      this.products = resp
+    this.productService.getAll().subscribe(resp=>{
+      this.products = []
+      for (const iProduct of resp) {
+        this.imageService.getAllImages(iProduct.idProduct).subscribe(images=>{
+          iProduct.images = images
+          this.products.push(iProduct)
+        })
+      }
     })
   }
 

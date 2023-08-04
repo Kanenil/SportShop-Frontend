@@ -14,6 +14,9 @@ import { CartComponent } from './cart/cart.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { RegisterComponent } from './auth/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { OrderComponent } from './order/order.component';
+import {PipesModule} from "../../pipes/pipes.module";
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 
 
@@ -27,7 +30,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     FilterComponent,
     CartComponent,
     SigninComponent,
-    RegisterComponent
+    RegisterComponent,
+    OrderComponent,
+    OrderHistoryComponent
   ],
     imports: [
         CommonModule,
@@ -35,7 +40,8 @@ import {ReactiveFormsModule} from "@angular/forms";
         ProductModule,
         CategoryModule,
         BaseModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PipesModule
     ]
 })
 export class PagesModule { }
