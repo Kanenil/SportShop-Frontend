@@ -10,7 +10,7 @@ import {IImage} from "../../../models/image/image.model";
 export class ProductCardComponent {
 
   @Input() product!: IProduct;
-  @Input() image!: IImage | null;
+  @Input() image!: IImage[] | null;
 
   constructor(
     public cartService: CartService

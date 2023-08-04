@@ -8,6 +8,7 @@ import {SingleProductComponent} from "./components/pages/single-product/single-p
 import {CartComponent} from "./components/pages/cart/cart.component";
 import {SigninComponent} from "./components/pages/auth/signin/signin.component";
 import {RegisterComponent} from "./components/pages/auth/register/register.component";
+import {IsSignedInGuard} from "./guards/is-signed-in.guard";
 
 const routes: Routes = [
 
@@ -23,8 +24,8 @@ const routes: Routes = [
         ]
       },
       { path: 'cart', component: CartComponent },
-      { path: 'signin', component: SigninComponent },
-      { path: 'signup', component: RegisterComponent },
+      { path: 'signin', component: SigninComponent, canActivate: [IsSignedInGuard], },
+      { path: 'signup', component: RegisterComponent, canActivate: [IsSignedInGuard], },
       //{ path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: 'not-found' }
     ]

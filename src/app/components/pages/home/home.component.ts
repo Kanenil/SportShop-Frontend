@@ -3,6 +3,7 @@ import {ProductService} from "../../../services/product.service";
 import {CategoryService} from "../../../services/category.service";
 import {IProduct} from "../../../models/product/product.model";
 import {ImageService} from "../../../services/image.service";
+import {Image} from "../../../models/image/image.model";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
     public imageService: ImageService,
     public categoryService: CategoryService
   ) {}
+
 
   ngOnInit(): void {
     this.productService.getAll().subscribe(resp=>{

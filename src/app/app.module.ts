@@ -8,6 +8,7 @@ import {PagesModule} from "./components/pages/pages.module";
 import { ClickedOutsideDirective } from './directives/clicked-outside.directive';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {authInterceptorProviders} from "./interseptors/auth.interceptor";
 
 @NgModule({
     declarations: [
@@ -20,7 +21,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
         PagesModule,
       HttpClientModule
     ],
-    providers: [],
+    providers: [authInterceptorProviders],
   exports: [
 
 

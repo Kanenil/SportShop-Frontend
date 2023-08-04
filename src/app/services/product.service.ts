@@ -4,56 +4,6 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 
-const PRODUCTS: IProduct[] = [
-  {
-    idProduct: 1,
-    name: "Sports T-Shirt",
-    price: 5.99,
-    color: "white",
-    size: "M",
-    brand: "Adidas",
-    category: {
-      idCategory: 1,
-      name: "T-Shirts"
-    }
-  },
-  {
-    idProduct: 2,
-    name: "Football Sports Short",
-    price: 4.99,
-    color: "blue",
-    size: "M",
-    brand: "Adidas",
-    category: {
-      idCategory: 2,
-      name: "Shorts"
-    }
-  },
-  {
-    idProduct: 3,
-    name: "Jogger",
-    price: 9.99,
-    color: "black",
-    size: "L",
-    brand: "Adidas",
-    category: {
-      idCategory: 3,
-      name: "Joggers"
-    }
-  },
-  {
-    idProduct: 4,
-    name: "Jogger",
-    price: 7.99,
-    color: "blue",
-    size: "M",
-    brand: "Adidas",
-    category: {
-      idCategory: 3,
-      name: "Joggers"
-    }
-  }
-]
 
 const IMAGES: string[] = [
   "https://xcdn.next.co.uk/Common/Items/Default/Default/ItemImages/AltItemShot/315x472/D33001s.jpg",
@@ -81,9 +31,7 @@ export class ProductService {
   }
 
   getProductById(id: number | string) {
-    const product = PRODUCTS.find(prod => prod.idProduct == id);
-
-    return product;
+    return this.http.get<IProduct>(`${environment.apiUrl}/product/${id}`);
   }
 
 }

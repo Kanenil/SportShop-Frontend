@@ -31,7 +31,7 @@
 
       <app-product-card *ngFor="let product of products; index as i;"
                         [product]="product"
-                        [image]="imageService.getImage(product.idProduct) | async">
+                        [image]="imageService.getAllImages(product.idProduct) | async">
       </app-product-card>
 
     </div>
