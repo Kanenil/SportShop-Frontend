@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { OrderComponent } from './order/order.component';
 import {PipesModule} from "../../pipes/pipes.module";
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -32,7 +33,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     SigninComponent,
     RegisterComponent,
     OrderComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    NotFoundComponent
   ],
     imports: [
         CommonModule,

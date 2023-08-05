@@ -15,7 +15,7 @@ export class OrderGuard {
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.cartService.getItemCount() == 0) {
-      this.router.navigate(['/products'], {replaceUrl: true});
+      this.router.navigate(['/order', 'history'], {replaceUrl: true});
       return false;
     }
     return true

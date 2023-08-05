@@ -13,6 +13,7 @@ import {OrderComponent} from "./components/pages/order/order.component";
 import {OrderHistoryComponent} from "./components/pages/order-history/order-history.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {OrderGuard} from "./guards/order.guard";
+import {NotFoundComponent} from "./components/pages/not-found/not-found.component";
 
 const routes: Routes = [
 
@@ -37,7 +38,7 @@ const routes: Routes = [
       },
       { path: 'signin', component: SigninComponent, canActivate: [IsSignedInGuard], },
       { path: 'signup', component: RegisterComponent, canActivate: [IsSignedInGuard], },
-      //{ path: 'not-found', component: NotFoundComponent },
+      { path: 'not-found', component: NotFoundComponent },
       { path: '**', redirectTo: 'not-found' }
     ]
   },

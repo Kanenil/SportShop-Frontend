@@ -23,10 +23,11 @@ export class CartService {
   ) {
     if (this.storageService.get("token")) {
       this.getCartFromServer().subscribe(resp => {
-        console.log(resp)
 
         if (resp.length == 0) {
           this.productItemList = storageService.parseGet<ICartProduct[]>(CART) || [];
+        } else {
+          this.productItemList = resp
         }
 
         this.updateBehavior();
@@ -42,15 +43,22 @@ export class CartService {
       for (let i = 0; i < this.productItemList.length; i++) {
         const product = this.productItemList[i]
         this.addToServer(product).subscribe(resp => {
-
-          this.productItemList[i].idCartItem = resp.idCartItem
+          product.id = resp.idCartItem
         })
       }
     }
   }
 
   private addToServer(product: ICartProduct) {
-    return this.http.post<ICartProduct>(`${environment.apiUrl}/cart/addItem`, product)
+    return this.http.post<any>(`${environment.apiUrl}/cart/addItem`, product)
+  }
+
+  private removeFromServer(product: ICartProduct) {
+    return this.http.delete<ICartProduct>(`${environment.apiUrl}/cart/removeItem/${product.id}`)
+  }
+
+  private changeQuantityOnServer(productId: number, quantity: number) {
+    return this.http.put<ICartProduct>(`${environment.apiUrl}/cart/itemQuantity/${productId}`, quantity)
   }
 
   private getCartFromServer() {
@@ -62,8 +70,7 @@ export class CartService {
 
     if (this.storageService.get("token")) {
       this.addToServer(productCart).subscribe(resp => {
-        console.log("addToServer", resp)
-        productCart.idCartItem = resp.idCartItem
+        productCart.id = resp.idCartItem
         this.productItemList.push(productCart);
         this.updateBehavior();
       })
@@ -74,15 +81,27 @@ export class CartService {
 
   }
 
+  public clearCart() {
+    this.productItemList = [];
+    this.updateBehavior();
+  }
+
   public removeProductFromCart(product: ICartProduct) {
     const index = this.productItemList.indexOf(product);
-    this.productItemList.splice(index, 1);
+    this.productItemList.splice(index, 1)
+    if (localStorage.getItem("token")) {
+      this.removeFromServer(product).subscribe()
+    }
     this.updateBehavior();
   }
 
   public changeQuantity(product: ICartProduct, offset: number) {
     const index = this.productItemList
       .findIndex(prod => prod.product.idProduct === product.product.idProduct);
+
+    if (localStorage.getItem("token")) {
+      this.changeQuantityOnServer(this.productItemList[index].id, this.productItemList[index].quantity + offset).subscribe()
+    }
 
     this.productItemList[index].quantity += offset;
     this.updateBehavior();

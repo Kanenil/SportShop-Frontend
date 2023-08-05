@@ -31,6 +31,7 @@ export class SingleProductComponent implements OnInit {
       const id = params.get("id") || "1";
       this.productService.getProductById(id).subscribe(resp => {
         this.product = resp;
+
         this.images = this.productService.getAllImages();
         this.breadcrumbs = [
           {title: "Products", link: ["/products"]},
