@@ -23,21 +23,11 @@
           Categories
         </a>
         <div class="z-10 submenu hidden relative lg:absolute w-[250px] top-full lg:top-[110%] left-0 rounded-sm lg:shadow-lg p-4 lg:block lg:opacity-0 lg:invisible group-hover:opacity-100 lg:group-hover:visible lg:group-hover:top-full bg-white transition-[top] duration-300">
-          <a routerLink="/products"
+          <a [routerLink]="['/products']"
+             [queryParams]="{category: category.idCategory}"
+             *ngFor="let category of categories"
             class="block text-sm text-body-color rounded hover:text-primary py-[10px] px-4">
-            Category 1
-          </a>
-          <a routerLink="/products"
-             class="block text-sm text-body-color rounded hover:text-primary py-[10px] px-4">
-            Category 2
-          </a>
-          <a routerLink="/products"
-             class="block text-sm text-body-color rounded hover:text-primary py-[10px] px-4">
-            Category 3
-          </a>
-          <a routerLink="/products"
-             class="block text-sm text-body-color rounded hover:text-primary py-[10px] px-4">
-            Category 4
+            {{ category.name | titlecase }}
           </a>
         </div>
       </li>

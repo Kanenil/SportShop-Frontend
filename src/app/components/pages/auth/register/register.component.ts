@@ -63,10 +63,9 @@ export class RegisterComponent implements OnInit {
       resp => {
         this.router.navigate(['/signin'], {replaceUrl: true});
       }, error => {
-        console.log(error)
-        // if(error.error.ErrorMessage.includes('already exists')){
-        //   this.f["email"].setErrors({'exists':true})
-        // }
+        if (!error.ok) {
+          this.f["email"].setErrors({'exists':true})
+        }
       }
     );
 

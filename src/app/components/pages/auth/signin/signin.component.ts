@@ -52,6 +52,10 @@ export class SigninComponent implements OnInit {
 
     this.authService.login(this.form.value).subscribe(resp => {
       this.saveAndRedirectToHome(resp);
+    }, error => {
+      if (error.status === 401) {
+        this.f["password"].setErrors({'wrong':true})
+      }
     })
 
   }

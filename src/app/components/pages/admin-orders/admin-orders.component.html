@@ -1,0 +1,83 @@
+<section class="container px-4 mx-auto lg:min-w-[900px] mb-auto">
+  <div class="sm:flex sm:items-center sm:justify-between">
+    <div>
+      <div class="flex items-center gap-x-3">
+        <h2 class="text-lg font-medium text-gray-800 dark:text-white">Orders</h2>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col mt-6">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+        <div class="overflow-hidden border border-gray-200 dark:border-gray-600 md:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+            <thead class="bg-gray-50 dark:bg-gray-800">
+            <tr>
+              <th
+                scope="col"
+                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+              >
+                #
+              </th>
+              <th
+                scope="col"
+                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+              >
+                User
+              </th>
+              <th
+                scope="col"
+                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+              >
+                Product Info
+              </th>
+              <th
+                scope="col"
+                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+              >
+                Status
+              </th>
+            </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+              <tr *ngFor="let order of orders">
+                <td class="px-4 py-4 text-sm whitespace-nowrap">
+                  <div>
+                    <h4 class="text-gray-700 dark:text-gray-300">{{ order.orderId }}</h4>
+                  </div>
+                </td>
+                <td class="px-4 py-4 text-sm whitespace-nowrap">
+                  <div>
+                    <h4 class="text-gray-700 dark:text-gray-300">{{ order.userDto.name | titlecase }}</h4>
+                  </div>
+                </td>
+                <td class="px-4 py-4 text-sm whitespace-nowrap">
+                  <div>
+                    <ng-container *ngFor="let item of order.orderItems">
+                      <h4 class="text-gray-700 dark:text-gray-300">
+                        {{ item.quantity }} {{ item.product.title | titlecase }} for each {{ item.product.price | currency }}
+                      </h4>
+                    </ng-container>
+                  </div>
+                </td>
+                <td class="px-4 py-4 text-sm whitespace-nowrap">
+                  <div>
+                    <select
+                      [(ngModel)]="order.orderStatus.name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      (change)="onChangeStatus(order, $event)"
+                    >
+                      <option *ngFor="let orderStatus of orderStatuses" [value]="orderStatus.name">
+                        {{ orderStatus.name | titlecase }}
+                      </option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

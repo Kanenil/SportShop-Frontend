@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ICategory} from "../../../../../models/category/category.model";
+import {CategoryService} from "../../../../../services/category.service";
 
 @Component({
   selector: 'app-nav-menu',
@@ -11,6 +13,9 @@ export class NavMenuComponent implements OnInit {
   private collapse: Element | null = null;
 
   @Input() isAdmin: boolean = false
+  public categories: ICategory[] = []
+
+  constructor(private categoryService: CategoryService) {}
 
   toggleMenu() {
     if(this.isOpen) {
@@ -27,6 +32,9 @@ export class NavMenuComponent implements OnInit {
   ngOnInit(): void {
     this.toggler = document.querySelector('#navbarToggler');
     this.collapse = document.querySelector('#navbarCollapse');
+    this.categoryService.getAll().subscribe(resp=>{
+      this.categories = resp
+    })
   }
 
 }

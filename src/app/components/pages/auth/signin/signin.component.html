@@ -70,6 +70,7 @@
               <p *ngIf="submitted && f['password'].errors" class="mt-2 text-sm text-red-600">
                 <span *ngIf="f['password'].errors?.['required']">Password is required</span>
                 <span *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</span>
+                <span *ngIf="f['password'].errors?.['wrong']">Password or username is incorrect</span>
               </p>
             </div>
             <div class="flex items-center justify-between mb-8">

@@ -17,6 +17,8 @@ export class OrderComponent {
 
   makeOrder() {
     this.cartService.clearCart()
-    this.orderService.makeOrder().subscribe()
+    this.orderService.makeOrder().subscribe(()=>{
+      this.router.navigate(['/order', 'history'], {replaceUrl: true})
+    })
   }
 }

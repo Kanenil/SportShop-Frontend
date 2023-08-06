@@ -20,6 +20,8 @@ import {CreateCategoryComponent} from "./components/pages/create-category/create
 import {EditCategoryComponent} from "./components/pages/edit-category/edit-category.component";
 import {CreateProductComponent} from "./components/pages/create-product/create-product.component";
 import {EditProductComponent} from "./components/pages/edit-product/edit-product.component";
+import {AdminOrdersComponent} from "./components/pages/admin-orders/admin-orders.component";
+import {AdminUsersComponent} from "./components/pages/admin-users/admin-users.component";
 
 const routes: Routes = [
 
@@ -66,6 +68,8 @@ const routes: Routes = [
           { path: 'edit/:id', component: EditProductComponent }
         ]
       },
+      { path: 'users', component: AdminUsersComponent },
+      { path: 'orders', component: AdminOrdersComponent },
     ]
   },
 

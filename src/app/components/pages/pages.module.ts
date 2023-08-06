@@ -13,7 +13,7 @@ import { FilterComponent } from './products/filter/filter.component';
 import { CartComponent } from './cart/cart.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { RegisterComponent } from './auth/register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { OrderComponent } from './order/order.component';
 import {PipesModule} from "../../pipes/pipes.module";
 import { OrderHistoryComponent } from './order-history/order-history.component';
@@ -24,6 +24,8 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 
 
 
@@ -46,16 +48,19 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     CreateCategoryComponent,
     EditCategoryComponent,
     CreateProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    AdminUsersComponent,
+    AdminOrdersComponent
   ],
-    imports: [
-        CommonModule,
-        RouterLink,
-        ProductModule,
-        CategoryModule,
-        BaseModule,
-        ReactiveFormsModule,
-        PipesModule
-    ]
+  imports: [
+    CommonModule,
+    RouterLink,
+    ProductModule,
+    CategoryModule,
+    BaseModule,
+    ReactiveFormsModule,
+    PipesModule,
+    FormsModule
+  ]
 })
 export class PagesModule { }
