@@ -7,7 +7,7 @@
         </a>
       </div>
       <div class="flex px-4 justify-between items-center w-full">
-        <app-nav-menu></app-nav-menu>
+        <app-nav-menu [isAdmin]="isAdmin()"></app-nav-menu>
 
         <div class="hidden xl:flex items-center">
           <a routerLink="/cart" class="flex items-center hover:text-gray-600">

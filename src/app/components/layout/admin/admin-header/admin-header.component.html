@@ -1,1 +1,46 @@
-<p>admin-header works!</p>
+<aside class="flex flex-col min-h-screen max-h-full w-fit max-w-64 px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+  <a routerLink="/admin" class="mx-auto">
+    <img class="w-auto h-12" src="assets/images/logo/logo-white.svg" alt="" />
+  </a>
+
+  <div *ngIf="user" class="hidden md:flex flex-col items-center mt-6 -mx-2">
+    <img
+      class="object-cover w-24 h-24 mx-2 rounded-full"
+      [src]="undefined | formatImage"
+      alt="avatar"
+    />
+    <h4 class="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200">
+      {{ user.name }}
+    </h4>
+    <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400">
+      {{ user.username }}
+    </p>
+  </div>
+
+  <div class="flex flex-col justify-between flex-1 mt-6">
+    <nav>
+      <a
+        class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+        [routerLink]="['/admin', 'categories']"
+      >
+        <span class="mx-0 md:mx-4 font-medium">Categories</span>
+      </a>
+
+      <a
+        class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+        [routerLink]="['/admin', 'products']"
+      >
+        <span class="mx-0 md:mx-4 font-medium">Products</span>
+      </a>
+
+      <hr class="my-6 border-gray-200 dark:border-gray-600" />
+
+      <a
+        class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+        routerLink="/"
+      >
+        <span class="mx-0 md:mx-4 font-medium">Back to home</span>
+      </a>
+    </nav>
+  </div>
+</aside>

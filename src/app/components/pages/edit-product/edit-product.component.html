@@ -1,0 +1,214 @@
+<section class="flex items-center justify-center m-2 max-w-lg mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-7xl">
+  <div class="flex justify-center">
+    <img
+      class="hidden bg-cover lg:block lg:w-2/5"
+      src="assets/images/city-landscape.png"
+    />
+
+    <div class="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
+      <div class="w-full">
+        <h1 class="mt-2 text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
+          Edit product
+        </h1>
+
+        <form
+          class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2"
+          [formGroup]="form" (ngSubmit)="onSubmit()"
+        >
+          <input
+            type="text"
+            formControlName="idProduct"
+            class="hidden"
+          />
+
+          <div class="col-span-2">
+            <label
+              for="title"
+              class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+              [ngClass]="{
+                      'label-invalid': submitted && f['title'].errors,
+                      'label-valid': submitted &&  !f['title'].errors,
+                      'text-[#1d2144]': !submitted
+                     }"
+            >
+              Title
+            </label>
+            <input
+              type="text"
+              placeholder="Enter title"
+              formControlName="title"
+              id="title"
+              name="title"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              [ngClass]="{
+                                'input-invalid': submitted && f['title'].errors,
+                                'input-valid': submitted &&  !f['title'].errors,
+                                'text-[#959cb1] placeholder-[#959cb1] focus:border-[#4a6cf7]': !submitted
+                                }"
+            />
+            <p *ngIf="submitted && f['title'].errors" class="mt-2 text-sm text-red-600">
+              <span *ngIf="f['title'].errors?.['required']">Title is required</span>
+            </p>
+          </div>
+
+          <div class="col-span-2">
+            <label
+              for="price"
+              class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+              [ngClass]="{
+                      'label-invalid': submitted && f['price'].errors,
+                      'label-valid': submitted &&  !f['price'].errors,
+                      'text-[#1d2144]': !submitted
+                     }"
+            >
+              Price
+            </label>
+            <input
+              type="text"
+              placeholder="Enter price"
+              formControlName="price"
+              id="price"
+              name="price"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              [ngClass]="{
+                                'input-invalid': submitted && f['price'].errors,
+                                'input-valid': submitted &&  !f['price'].errors,
+                                'text-[#959cb1] placeholder-[#959cb1] focus:border-[#4a6cf7]': !submitted
+                                }"
+            />
+            <p *ngIf="submitted && f['price'].errors" class="mt-2 text-sm text-red-600">
+              <span *ngIf="f['price'].errors?.['required']">Price is required</span>
+            </p>
+          </div>
+
+          <div class="col-span-2">
+            <label
+              for="color"
+              class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+              [ngClass]="{
+                      'label-invalid': submitted && f['color'].errors,
+                      'label-valid': submitted &&  !f['color'].errors,
+                      'text-[#1d2144]': !submitted
+                     }"
+            >
+              Color
+            </label>
+            <input
+              type="text"
+              placeholder="Enter color"
+              formControlName="color"
+              id="color"
+              name="color"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              [ngClass]="{
+                                'input-invalid': submitted && f['color'].errors,
+                                'input-valid': submitted &&  !f['color'].errors,
+                                'text-[#959cb1] placeholder-[#959cb1] focus:border-[#4a6cf7]': !submitted
+                                }"
+            />
+            <p *ngIf="submitted && f['color'].errors" class="mt-2 text-sm text-red-600">
+              <span *ngIf="f['color'].errors?.['required']">Color is required</span>
+            </p>
+          </div>
+
+          <div class="col-span-2">
+            <label
+              for="color"
+              class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+              [ngClass]="{
+                      'label-invalid': submitted && f['size'].errors,
+                      'label-valid': submitted &&  !f['size'].errors,
+                      'text-[#1d2144]': !submitted
+                     }"
+            >
+              Size
+            </label>
+            <input
+              type="text"
+              placeholder="Enter color"
+              formControlName="size"
+              id="size"
+              name="size"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              [ngClass]="{
+                                'input-invalid': submitted && f['size'].errors,
+                                'input-valid': submitted &&  !f['size'].errors,
+                                'text-[#959cb1] placeholder-[#959cb1] focus:border-[#4a6cf7]': !submitted
+                                }"
+            />
+            <p *ngIf="submitted && f['size'].errors" class="mt-2 text-sm text-red-600">
+              <span *ngIf="f['size'].errors?.['required']">Size is required</span>
+            </p>
+          </div>
+
+          <div class="col-span-2">
+            <label
+              for="brand"
+              class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+              [ngClass]="{
+                      'label-invalid': submitted && f['brand'].errors,
+                      'label-valid': submitted &&  !f['brand'].errors,
+                      'text-[#1d2144]': !submitted
+                     }"
+            >
+              Brand
+            </label>
+            <input
+              type="text"
+              placeholder="Enter brand"
+              formControlName="brand"
+              id="brand"
+              name="brand"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              [ngClass]="{
+                                'input-invalid': submitted && f['brand'].errors,
+                                'input-valid': submitted &&  !f['brand'].errors,
+                                'text-[#959cb1] placeholder-[#959cb1] focus:border-[#4a6cf7]': !submitted
+                                }"
+            />
+            <p *ngIf="submitted && f['brand'].errors" class="mt-2 text-sm text-red-600">
+              <span *ngIf="f['brand'].errors?.['required']">Brand is required</span>
+            </p>
+          </div>
+
+          <div class="col-span-2">
+            <label
+              for="category"
+              class="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+              [ngClass]="{
+                      'label-invalid': submitted && f['category'].errors,
+                      'label-valid': submitted &&  !f['category'].errors,
+                      'text-[#1d2144]': !submitted
+                     }"
+            >
+              Category
+            </label>
+            <select
+              id="category"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              (change)="changeCategory($event)"
+              formControlName="category"
+            >
+              <option *ngFor="let category of categories" [ngValue]="category">
+                {{ category.name | titlecase }}
+              </option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="lg:col-span-1 sm:col-span-2 flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+          >
+            <span>Edit</span>
+          </button>
+          <a
+            routerLink=".."
+            class="lg:col-span-1 sm:col-span-2 flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+          >
+            <span>Back</span>
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -18,6 +18,12 @@ import { OrderComponent } from './order/order.component';
 import {PipesModule} from "../../pipes/pipes.module";
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { AdminCategoriesComponent } from './admin-categories/admin-categories.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 
@@ -34,7 +40,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RegisterComponent,
     OrderComponent,
     OrderHistoryComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminProductsComponent,
+    AdminCategoriesComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    CreateProductComponent,
+    EditProductComponent
   ],
     imports: [
         CommonModule,

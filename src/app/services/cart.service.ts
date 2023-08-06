@@ -82,8 +82,9 @@ export class CartService {
   }
 
   public clearCart() {
-    this.productItemList = [];
-    this.updateBehavior();
+    this.productItemList.splice(0, this.productItemList.length)
+    console.log(this.productItemList)
+    this.updateBehavior()
   }
 
   public removeProductFromCart(product: ICartProduct) {

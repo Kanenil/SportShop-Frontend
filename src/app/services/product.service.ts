@@ -3,6 +3,7 @@ import {IProduct} from "../models/product/product.model";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
+import {ICategory} from "../models/category/category.model";
 
 
 const IMAGES: string[] = [
@@ -20,6 +21,18 @@ export class ProductService {
 
   getAll() : Observable<IProduct[]> {
     return this.http.get<IProduct[]>(`${environment.apiUrl}/product/all`);
+  }
+
+  create(model: IProduct) {
+    return this.http.post<IProduct>(`${environment.apiUrl}/admin/product/create`, model)
+  }
+
+  update(model: IProduct) {
+    return this.http.put<IProduct>(`${environment.apiUrl}/admin/product/update/${model.idProduct}`, model)
+  }
+
+  delete(id: number) {
+    return this.http.delete<any>(`${environment.apiUrl}/admin/product/delete/${id}`)
   }
 
   getAllImages() : string[] {

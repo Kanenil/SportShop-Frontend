@@ -5,6 +5,7 @@ import {IProduct} from "../../../models/product/product.model";
 import {ImageService} from "../../../services/image.service";
 import {Image} from "../../../models/image/image.model";
 import {map} from "rxjs";
+import {ICategory} from "../../../models/category/category.model";
 
 
 @Component({
@@ -14,9 +15,10 @@ import {map} from "rxjs";
 export class HomeComponent implements OnInit {
 
   public products!: IProduct[]
+  public categories!: ICategory[]
 
   constructor(
-    public productService: ProductService,
+    private productService: ProductService,
     public imageService: ImageService,
     public categoryService: CategoryService
   ) {}
@@ -31,6 +33,9 @@ export class HomeComponent implements OnInit {
           this.products.push(iProduct)
         })
       }
+    })
+    this.categoryService.getAll().subscribe(resp=>{
+      this.categories = resp
     })
   }
 

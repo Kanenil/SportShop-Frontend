@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ICategory} from "../models/category/category.model";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 const CATEGORIES: ICategory[] = [
   { idCategory: 1, name: "T-Shirts" },
@@ -23,10 +25,26 @@ const IMAGES: string[] = [
   providedIn: 'root'
 })
 export class CategoryService {
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAll() : ICategory[] {
-    return CATEGORIES;
+  getAll() {
+    return this.http.get<ICategory[]>(`${environment.apiUrl}/category/all`);
+  }
+
+  getById(id: number | string) {
+    return this.http.get<ICategory>(`${environment.apiUrl}/category/${id}`);
+  }
+
+  create(model: ICategory) {
+    return this.http.post<ICategory>(`${environment.apiUrl}/admin/category/create`, model)
+  }
+
+  update(model: ICategory) {
+    return this.http.put<ICategory>(`${environment.apiUrl}/admin/category/update/${model.idCategory}`, model)
+  }
+
+  delete(id: number) {
+    return this.http.delete<any>(`${environment.apiUrl}/admin/category/delete/${id}`)
   }
 
   getImageById(id: number) : string {

@@ -7,6 +7,7 @@ import { DefaultHeaderComponent } from './default/default-header/default-header.
 import { DefaultFooterComponent } from './default/default-footer/default-footer.component';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import { NavMenuComponent } from './default/default-header/nav-menu/nav-menu.component';
+import {PipesModule} from "../../pipes/pipes.module";
 
 
 
@@ -19,12 +20,13 @@ import { NavMenuComponent } from './default/default-header/nav-menu/nav-menu.com
     DefaultFooterComponent,
     NavMenuComponent
   ],
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    NgOptimizedImage,
-    RouterLink,
-    RouterLinkActive
-  ]
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        NgOptimizedImage,
+        RouterLink,
+        RouterLinkActive,
+        PipesModule
+    ]
 })
 export class LayoutModule { }

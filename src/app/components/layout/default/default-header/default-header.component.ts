@@ -5,6 +5,8 @@ import {UserService} from "../../../../services/user.service";
 import {EventBusService} from "../../../../shared/event-bus.service";
 import {AuthService} from "../../../../services/auth.service";
 import {EventData} from "../../../../shared/event.class";
+import {IUserRole} from "../../../../models/user/user-role.model";
+import {Roles} from "../../../../models/user/roles";
 
 @Component({
   selector: 'app-default-header',
@@ -15,6 +17,7 @@ export class DefaultHeaderComponent implements OnInit {
   private header: HTMLElement | null = null;
 
   public loginedUser!: IUser | null
+  public roles!: IUserRole[] | null
 
   constructor(
     public cartService: CartService,
@@ -44,12 +47,20 @@ export class DefaultHeaderComponent implements OnInit {
   }
 
   private loadUser() {
-    if(localStorage.getItem("token"))
+    if(localStorage.getItem("token")) {
       this.userService.getUser().subscribe(user=>{
         this.loginedUser = user;
       })
+      this.userService.getRoles().subscribe(resp=>{
+        this.roles = resp
+      })
+    }
     else
       this.loginedUser = null;
+  }
+
+  public isAdmin() {
+    return this.roles?.find(r => r.name === Roles.ADMIN) != undefined
   }
 
   public logout() {

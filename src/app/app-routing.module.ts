@@ -14,6 +14,12 @@ import {OrderHistoryComponent} from "./components/pages/order-history/order-hist
 import {AuthGuard} from "./guards/auth.guard";
 import {OrderGuard} from "./guards/order.guard";
 import {NotFoundComponent} from "./components/pages/not-found/not-found.component";
+import {AdminProductsComponent} from "./components/pages/admin-products/admin-products.component";
+import {AdminCategoriesComponent} from "./components/pages/admin-categories/admin-categories.component";
+import {CreateCategoryComponent} from "./components/pages/create-category/create-category.component";
+import {EditCategoryComponent} from "./components/pages/edit-category/edit-category.component";
+import {CreateProductComponent} from "./components/pages/create-product/create-product.component";
+import {EditProductComponent} from "./components/pages/edit-product/edit-product.component";
 
 const routes: Routes = [
 
@@ -38,18 +44,33 @@ const routes: Routes = [
       },
       { path: 'signin', component: SigninComponent, canActivate: [IsSignedInGuard], },
       { path: 'signup', component: RegisterComponent, canActivate: [IsSignedInGuard], },
-      { path: 'not-found', component: NotFoundComponent },
-      { path: '**', redirectTo: 'not-found' }
     ]
   },
 
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
-
+      { path: 'categories',
+        children: [
+          { path: '', component: AdminCategoriesComponent },
+          { path: 'create', component: CreateCategoryComponent },
+          { path: 'edit/:id', component: EditCategoryComponent }
+        ]
+      },
+      { path: 'products',
+        children: [
+          { path: '', component: AdminProductsComponent },
+          { path: 'create', component: CreateProductComponent },
+          { path: 'edit/:id', component: EditProductComponent }
+        ]
+      },
     ]
   },
+
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' }
 
 ];
 

@@ -11,7 +11,7 @@
     <div>
       <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">Categories</h3>
       <div class="space-y-2">
-        <div *ngFor="let category of categoryService.getAll(); index as i"
+        <div *ngFor="let category of categories; index as i"
              class="flex items-center">
           <input name="category" [id]="'filter-category-' + i" type="radio" class="cursor-pointer h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
           <label [for]="'filter-category-' + i" class="cursor-pointer ml-3 min-w-0 flex-1 text-gray-500">{{category.name}}</label>

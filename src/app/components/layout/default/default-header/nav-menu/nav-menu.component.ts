@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
@@ -9,6 +9,8 @@ export class NavMenuComponent implements OnInit {
   private isOpen = false;
   private toggler: Element | null = null;
   private collapse: Element | null = null;
+
+  @Input() isAdmin: boolean = false
 
   toggleMenu() {
     if(this.isOpen) {
