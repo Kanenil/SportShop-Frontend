@@ -27,7 +27,7 @@ export class UserService {
   }
 
   putUserRoles(user:IUserAdmin, roles: IUserRole[]) : Observable<IUserRole[]> {
-    return this.http.put<IUserRole[]>(`${environment.apiUrl}/admin/user/${user.id}/roles`, {roles});
+    return this.http.put<IUserRole[]>(`${environment.apiUrl}/admin/user/${user.id}/roles`, roles.map(r=>r.name));
   }
 
   getRoles() : Observable<IUserRole[]> {
